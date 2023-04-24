@@ -1,73 +1,88 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+@extends('layouts.home')
 
-<div class="flex items-center space-x-1">
-            <a href="{{ route('lt.kontaktai') }}">Kontaktai</a>
-            @if (Route::has('login'))
-            <a href="{{ route('login') }}" class="py-5 px-3">{{ __('Login') }}</a>
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="py-2 px-3 bg-gradient-to-r from-pink-500 to-yellow-500  hover:from-green-400 hover:to-blue-500 rounded shadow">{{ __('Register') }}</a>
+@section('content')
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<body style="background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url('/image/particles.png');">
+  <div class="flex justify-center text-white font-semibold pt-10">
+    Palieskite korteles
+  </div>
+    <div class="flex space-x-5 justify-around pt-40">
+<div class="card">
+    <div class="card-info">
+      <a href="{{route('lt.apiemus')}}" class="title">Apie mus</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-info">
+      <a href class="title">Moduliai</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-info">
+      <a href="{{route('lt.kontaktai')}}" class="title">Kontaktai</a>
+    </div>
+  </div>
+    </div>
+</body>
+@endsection
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<style>
+    .card {
+ --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
+ width: 190px;
+ height: 254px;
+ padding: 5px;
+ border-radius: 1rem;
+ overflow: visible;
+ background: #f7ba2b;
+ background: var(--background);
+ position: relative;
+ z-index: 1;
+}
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+.card::after {
+ position: absolute;
+ content: "";
+ top: 30px;
+ left: 0;
+ right: 0;
+ z-index: -1;
+ height: 100%;
+ width: 100%;
+ transform: scale(0.8);
+ filter: blur(25px);
+ background: #f7ba2b;
+ background: var(--background);
+ transition: opacity .5s;
+}
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+.card-info {
+ --color: #181818;
+ background: var(--color);
+ color: var(--color);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 100%;
+ overflow: visible;
+ border-radius: .7rem;
+}
 
-## Learning Laravel
+.card .title {
+ font-weight: bold;
+ letter-spacing: .1em;
+}
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+/*Hover*/
+.card:hover::after {
+ opacity: 0;
+}
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+.card:hover .card-info {
+ color: #f7ba2b;
+ transition: color 1s;
+}
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+</style>
